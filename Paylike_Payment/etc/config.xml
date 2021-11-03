@@ -11,7 +11,8 @@
             <paylikepaymentmethod>
                 <debug>1</debug>
                 <active>0</active>
-                <model>PaylikeFacade</model>
+                <!-- <model>PaylikeFacade</model> -->
+                <model>Esparks\Paylike\Model\Payment\Payment</model>
                 <payment_action>authorize</payment_action>
                 <order_status>pending_payment</order_status>
                 <title>Paylike</title>

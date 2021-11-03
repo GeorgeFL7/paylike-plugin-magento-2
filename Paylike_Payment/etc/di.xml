@@ -18,6 +18,8 @@
         </arguments>
     </virtualType>
 
+    <preference for="Magento\Multishipping\Controller\Checkout\OverviewPost" type="Esparks\Paylike\Controller\Multishipping\OverviewPost" />
+
     <!-- Configuration reader -->
     <virtualType name="PaylikeConfig" type="Magento\Payment\Gateway\Config\Config">
         <arguments>
@@ -210,5 +212,4 @@
             <argument name="config" xsi:type="object">PaylikeConfig</argument>
         </arguments>
     </type>
-
 </config>
