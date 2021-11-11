@@ -136,18 +136,15 @@ class OverviewPost extends Checkout implements HttpPostActionInterface
                 $this->_redirect('*/*/success');
             }
         } catch (PaymentProcessingRateLimitExceededException $ex) {
-            die("1");
             $this->messageManager->addErrorMessage($ex->getMessage());
             $this->_redirect('*/*/overview');
         } catch (PaymentException $e) {
-            die("2");
             $message = $e->getMessage();
             if (!empty($message)) {
                 $this->messageManager->addErrorMessage($message);
             }
             $this->_redirect('*/*/billing');
         } catch (\Magento\Checkout\Exception $e) {
-            die("3");
             $this->_objectManager->get(
                 \Magento\Checkout\Helper\Data::class
             )->sendPaymentFailedEmail(
@@ -159,8 +156,6 @@ class OverviewPost extends Checkout implements HttpPostActionInterface
             $this->messageManager->addErrorMessage($e->getMessage());
             $this->_redirect('*/cart');
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
-            var_dump($e -> getMessage());
-            die;
             $this->_objectManager->get(
                 \Magento\Checkout\Helper\Data::class
             )->sendPaymentFailedEmail(
@@ -171,7 +166,6 @@ class OverviewPost extends Checkout implements HttpPostActionInterface
             $this->messageManager->addErrorMessage($e->getMessage());
             $this->_redirect('*/*/billing');
         } catch (\Exception $e) {
-            die("5");
             $this->logger->critical($e);
             try {
                 $this->_objectManager->get(
